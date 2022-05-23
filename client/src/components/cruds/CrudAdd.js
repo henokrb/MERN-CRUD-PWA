@@ -111,10 +111,9 @@ function CrudAdd(props) {
 						className="form-control"
 					/>
 				</div>
-				<br></br>
+
 				<div className="btn-group">
 					<input type="submit" value="Submit" className="btn btn-primary" />
-					&nbsp;
 					<button
 						type="button"
 						onClick={handleCancel}

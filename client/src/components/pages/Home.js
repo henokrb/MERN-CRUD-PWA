@@ -5,13 +5,10 @@ function Home() {
 	const target = "_blank";
 
 	return (
-		<div className="container mt-4">
-			<h1>MERN Stack CRUD PWA</h1>
+		<div className="container">
+			<h1>MERN Stack CRUD</h1>
 			<p>
 				<b>Front-end</b>: React.js v17+ with RRDv6+
-				<b>
-					Created with npx create-react-app my-app --template cra-template-pwa
-				</b>
 			</p>
 			<p>
 				<b>Back-end</b>: Node.js, Express.js
