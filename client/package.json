@@ -3,10 +3,7 @@
 	"author": "Henok R. Bedassa",
 	"email": "jackbalageru@yahoo.com",
 	"version": "0.1.0",
-	"private": true,
-	"homepage": ".",
-	"main": "index.js",
-	"proxy": "https://mern-crud-henny.herokuapp.com",
+	"private": true,	
 	"dependencies": {
 		"@nkalpak/react-ios-pwa-prompt": "^1.8.7",
 		"@testing-library/jest-dom": "^5.16.2",
@@ -58,6 +55,8 @@
 			"last 1 safari version"
 		]
 	},
+	"proxy": "https://mern-crud-henny.herokuapp.com",
+	"main": "index.js",
 	"description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
 	"license": "ISC"
 }
