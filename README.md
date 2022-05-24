@@ -62,7 +62,7 @@ Details view by Id
 1. Clone repository
 
 ```shell
-git clone https://github.com/jackbalageru/MERN-CRUD.git
+git clone https://github.com/jackbalageru/MERN-CRUD-PWA.git
 ```
 
 ## Install Client (React Files)
