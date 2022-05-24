@@ -3,7 +3,7 @@
 	"author": "Henok R. Bedassa",
 	"email": "jackbalageru@yahoo.com",
 	"description": "",
-	"main": "node server.js",
+	"main": "server.js",
 	"scripts": {
 		"start": "node server.js"
 	},
