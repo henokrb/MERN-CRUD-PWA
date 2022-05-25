@@ -12,6 +12,7 @@ function CrudAdd(props) {
 		description: "",
 	};
 	const [crud, setCrud] = useState(initialState);
+	const [connection, setConnection] = useState("Online");
 
 	const navigate = useNavigate();
 
@@ -24,9 +25,14 @@ function CrudAdd(props) {
 					"https://mern-pwa.herokuapp.com/api/cruds/",
 					crud
 				);
+				localStorage.setItem("Post", JSON.stringify(response.data));
 				navigate(`/cruds/${response.data._id}`);
 			} catch (error) {
-				console.log("error", error);
+				//console.log("error", error);
+				setConnection("Offline");
+				let collection = localStorage.getItem("Post");
+				setCrud(JSON.parse(collection));
+				navigate(`/cruds/${JSON.parse(collection).data._id}`);
 			}
 		}
 		postCrud();
@@ -42,6 +48,13 @@ function CrudAdd(props) {
 
 	return (
 		<div className="container" style={{ maxWidth: "400px" }}>
+			<div>
+				{connection === "Offline" ? (
+					<div className="alert alert-warning" role="alert">
+						You are in Offline mode or some issue with internet connection
+					</div>
+				) : null}
+			</div>
 			<h1>Create CRUD</h1>
 			<hr />
 			<form onSubmit={handleSubmit}>
@@ -117,6 +130,7 @@ function CrudAdd(props) {
 
 				<div className="btn-group">
 					<input type="submit" value="Submit" className="btn btn-primary" />
+					&nbsp;
 					<button
 						type="button"
 						onClick={handleCancel}

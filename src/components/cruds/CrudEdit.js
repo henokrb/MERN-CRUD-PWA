@@ -12,6 +12,7 @@ function CrudEdit(props) {
 		description: "",
 	};
 	const [crud, setCrud] = useState(initialState);
+	const [connection, setConnection] = useState("Online");
 
 	const { _id } = useParams();
 	const navigate = useNavigate();
@@ -24,8 +25,12 @@ function CrudEdit(props) {
 						`https://mern-pwa.herokuapp.com/api/cruds/${_id}`
 					);
 					setCrud(response.data);
+					localStorage.setItem("Update", JSON.stringify(response.data));
 				} catch (error) {
-					console.log(error);
+					//console.log(error);
+					setConnection("Offline");
+					let collection = localStorage.getItem("Update");
+					setCrud(JSON.parse(collection));
 				}
 			}
 			updateCrud();
@@ -44,7 +49,11 @@ function CrudEdit(props) {
 				);
 				navigate(`/cruds/${crud._id}`);
 			} catch (error) {
-				console.log(error);
+				//console.log(error);
+				setConnection("Offline");
+				let collection = localStorage.getItem("Update");
+				setCrud(JSON.parse(collection));
+				navigate(`/cruds/${JSON.parse(collection).crud._id}`);
 			}
 		}
 		updateCrud();
@@ -60,6 +69,13 @@ function CrudEdit(props) {
 
 	return (
 		<div className="container">
+			<div>
+				{connection === "Offline" ? (
+					<div className="alert alert-warning" role="alert">
+						You are in Offline mode or some issue with internet connection
+					</div>
+				) : null}
+			</div>
 			<h1>Edit {crud.companyName}</h1>
 			<hr />
 			<form onSubmit={handleSubmit}>

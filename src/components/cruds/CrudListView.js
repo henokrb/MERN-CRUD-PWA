@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function CrudListView() {
 	const [cruds, setCruds] = useState([]);
+	const [connection, setConnection] = useState("Online");
 
 	useEffect(function () {
 		async function getCruds() {
@@ -12,8 +13,11 @@ function CrudListView() {
 					"https://mern-pwa.herokuapp.com/api/cruds"
 				);
 				setCruds(response.data);
+				localStorage.setItem("ListView", JSON.stringify(response.data));
 			} catch (error) {
-				console.log("error", error);
+				setConnection("Offline");
+				let collection = localStorage.getItem("ListView");
+				setCruds(JSON.parse(collection));
 			}
 		}
 		getCruds();
@@ -21,6 +25,13 @@ function CrudListView() {
 
 	return (
 		<div className="container">
+			<div>
+				{connection === "Offline" ? (
+					<div className="alert alert-warning" role="alert">
+						You are in Offline mode or some issue with internet connection
+					</div>
+				) : null}
+			</div>
 			<h2>
 				CRUD - List View
 				<p>

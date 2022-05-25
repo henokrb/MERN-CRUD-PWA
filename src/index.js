@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import PWAPrompt from "react-ios-pwa-prompt";
-import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 
 ReactDOM.render(
 	<React.StrictMode>

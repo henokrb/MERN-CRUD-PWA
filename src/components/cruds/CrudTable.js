@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function CrudTable() {
 	const [cruds, setCruds] = useState([]);
+	const [connection, setConnection] = useState("Online");
 
 	useEffect(function () {
 		async function getCruds() {
@@ -12,8 +13,11 @@ function CrudTable() {
 					"https://mern-pwa.herokuapp.com/api/cruds"
 				);
 				setCruds(response.data);
+				localStorage.setItem("TableView", JSON.stringify(response.data));
 			} catch (error) {
-				console.log("error", error);
+				setConnection("Offline");
+				let collection = localStorage.getItem("TableView");
+				setCruds(JSON.parse(collection));
 			}
 		}
 		getCruds();
@@ -22,6 +26,13 @@ function CrudTable() {
 	return (
 		<div className="container">
 			<div>
+				<div>
+					{connection === "Offline" ? (
+						<div className="alert alert-warning" role="alert">
+							You are in Offline mode or some issue with internet connection
+						</div>
+					) : null}
+				</div>
 				<h2>
 					CRUD - Table View
 					<p>

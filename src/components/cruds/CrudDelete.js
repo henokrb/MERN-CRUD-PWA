@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 function CrudDelete(props) {
 	const [crud, setCrud] = useState({});
+	const [connection, setConnection] = useState("Online");
 
 	const { _id } = useParams();
 	const navigate = useNavigate();
@@ -16,8 +17,12 @@ function CrudDelete(props) {
 						`https://mern-pwa.herokuapp.com/api/cruds/${_id}`
 					);
 					setCrud(response.data);
+					localStorage.setItem("Delete", JSON.stringify(response.data));
 				} catch (error) {
-					console.log("error", error);
+					//console.log("error", error);
+					setConnection("Offline");
+					let collection = localStorage.getItem("Delete");
+					setCrud(JSON.parse(collection));
 				}
 			}
 			deleteCrudById();
@@ -31,12 +36,23 @@ function CrudDelete(props) {
 			await axios.delete(`https://mern-pwa.herokuapp.com/api/cruds/${_id}`);
 			navigate("/cruds");
 		} catch (error) {
-			console.error(error);
+			//console.error(error);
+			setConnection("Offline");
+			let collection = localStorage.getItem("Delete");
+			//setCrud(JSON.parse(collection));
+			axios.delete(JSON.parse(collection));
 		}
 	}
 
 	return (
 		<div className="container">
+			<div>
+				{connection === "Offline" ? (
+					<div className="alert alert-warning" role="alert">
+						You are in Offline mode or some issue with internet connection
+					</div>
+				) : null}
+			</div>
 			<h2>{crud.companyName}</h2>
 
 			<p>

@@ -1,12 +1,12 @@
 {
 	"short_name": "MERN CRUD PWA Henok",
 	"name": "MERN CRUD PWA - Henny",
+	"description": "A MERN Stack PWA that works offline",
 	"icons": [
 		{
 			"src": "favicon.ico",
 			"sizes": "48x48",
-			"type": "image/x-icon",
-			"purpose": "any maskable"
+			"type": "image/x-icon"
 		},
 		{
 			"src": "logo192.png",
