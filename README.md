@@ -2,9 +2,9 @@
 
 MERN Stack CRUD **Progressive Web Application (PWA)** built with
 
-**Frontend** React v17+, RRDv6+, npx create-react-app my-app --template cra-template-pwa
-**Backend** Node.js, Express.js, Mongoose ODM
-**Database** MongoDB
+- **Frontend** React v17+, RRDv6+, npx create-react-app my-app --template cra-template-pwa
+- **Backend** Node.js, Express.js, Mongoose ODM
+- **Database** MongoDB
 
 **You can import the JSON File named 'Cruds' to your MongoDB. You will find it in the Server Folder**
 
