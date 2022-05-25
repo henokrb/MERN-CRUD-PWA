@@ -20,7 +20,9 @@ function CrudEdit(props) {
 		function () {
 			async function updateCrud() {
 				try {
-					const response = await get(`/api/cruds/${_id}`);
+					const response = await get(
+						`https://mern-pwa.herokuapp.com/api/cruds/${_id}`
+					);
 					setCrud(response.data);
 				} catch (error) {
 					console.log(error);
@@ -36,7 +38,10 @@ function CrudEdit(props) {
 		event.preventDefault();
 		async function updateCrud() {
 			try {
-				await patch(`/api/cruds/${crud._id}`, crud);
+				await patch(
+					`https://mern-pwa.herokuapp.com/api/cruds/${crud._id}`,
+					crud
+				);
 				navigate(`/cruds/${crud._id}`);
 			} catch (error) {
 				console.log(error);

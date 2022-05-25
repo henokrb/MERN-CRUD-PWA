@@ -8,7 +8,9 @@ function CrudTable() {
 	useEffect(function () {
 		async function getCruds() {
 			try {
-				const response = await axios.get("/api/cruds");
+				const response = await axios.get(
+					"https://mern-pwa.herokuapp.com/api/cruds"
+				);
 				setCruds(response.data);
 			} catch (error) {
 				console.log("error", error);
