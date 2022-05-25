@@ -1,6 +1,10 @@
 # 🤘 MERN Stack CRUD Progressive Web Application (PWA)
 
-MERN Stack CRUD **Progressive Web Application (PWA)** built with React v17+, RRDv6+, Node.js, Express.js MongoDB and Mongoose ODM.
+MERN Stack CRUD **Progressive Web Application (PWA)** built with
+
+**Frontend** React v17+, RRDv6+, npx create-react-app my-app --template cra-template-pwa
+**Backend** Node.js, Express.js, Mongoose ODM
+**Database** MongoDB
 
 **You can import the JSON File named 'Cruds' to your MongoDB. You will find it in the Server Folder**
 
@@ -62,7 +66,7 @@ Details view by Id
 1. Clone repository
 
 ```shell
-git clone https://github.com/jackbalageru/MERN-CRUD-PWA.git
+git clone https://github.com/jackbalageru/MERN-CRUD-PWAnpm n.git
 ```
 
 ## Install Client (React Files)
